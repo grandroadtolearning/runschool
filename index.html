@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', 'Droid Sans Fallback', sans-serif;
+    background: #f8f9fa;
+    padding: 24px;
+    font-size: 13px;
+    color: #111;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { font-size: 11px; color: #888; margin-bottom: 18px; }
+  .section-title {
+    font-size: 12px; font-weight: 700;
+    margin: 16px 0 8px;
+    padding-left: 8px;
+    border-left: 3px solid #6366f1;
+    color: #111;
+  }
+  .branch-wrap {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #e2e8f0;
+    page-break-inside: avoid;
+  }
+  .branch-header {
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+    color: #444;
+  }
+  .badge {
+    border-radius: 20px; padding: 2px 9px;
+    font-size: 10px; font-weight: 700; color: #fff;
+    display: inline-block;
+  }
+  .ba { background: #6366f1; }
+  .bb { background: #f97316; }
+  .bc { background: #94a3b8; }
+  .bd { background: #22c55e; }
+
+  /* Chat rows */
+  .row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+  .row.right { flex-direction: row-reverse; }
+  .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .av-shu { background: #7c3aed; color: #fff; }
+  .av-student { background: #94a3b8; color: #fff; }
+  .bubble {
+    max-width: 82%; padding: 8px 12px;
+    border-radius: 10px; font-size: 12.5px; line-height: 1.7;
+  }
+  .bubble-shu { background: #ede9fe; color: #3b0764; border-bottom-left-radius: 3px; }
+  .bubble-student { background: #f1f5f9; color: #222; border-bottom-right-radius: 3px; }
+  .bubble-success { background: #f0fdf4; color: #166534; border: 1.5px solid #86efac; }
+
+  .wdz {
+    display: inline-block; border-radius: 20px;
+    padding: 1px 7px; font-size: 10px; font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .wdz-w { background: #f5c842; color: #1a1a2e; }
+  .wdz-d { background: #a78bfa; color: #fff; }
+  .wdz-z { background: #34d399; color: #065f46; }
+
+  .note { font-size: 11px; color: #888; margin-left: 36px; margin-bottom: 6px; font-style: italic; }
+  .cycle {
+    background: #1a1a2e; color: #f5c842;
+    border-radius: 6px; padding: 4px 10px;
+    font-size: 10px; font-weight: 700;
+    display: inline-block; margin: 4px 0 4px 36px;
+  }
+  .arrow { color: #cbd5e1; font-size: 13px; text-align: center; margin: 2px 0 4px; }
+  .tip {
+    border-left: 3px solid #f59e0b;
+    background: #fffbeb; color: #92400e;
+    font-size: 11px; padding: 8px 12px; border-radius: 6px; margin-top: 6px;
+  }
+  .tip-red {
+    border-left: 3px solid #fca5a5;
+    background: #fef2f2; color: #991b1b;
+    font-size: 11px; padding: 8px 12px; border-radius: 6px; margin-top: 10px;
+  }
+  .opener {
+    background: #6366f1; color: #fff;
+    border-radius: 10px; padding: 12px 14px;
+    margin-bottom: 8px;
+  }
+  .opener .label { font-size: 10px; opacity: .7; margin-bottom: 3px; }
+  .opener .text { font-size: 13px; line-height: 1.6; }
+  .opener .sub { font-size: 11px; opacity: .75; margin-top: 3px; }
+
+  /* 問答讚 box */
+  .wdz-box {
+    background: #1a1a2e; border-radius: 10px;
+    padding: 14px; margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+  .wdz-box-title {
+    font-size: 13px; font-weight: 700; color: #f5c842;
+    text-align: center; margin-bottom: 12px; letter-spacing: 1px;
+  }
+  .wdz-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .wdz-circle {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; flex-shrink: 0; margin-top: 2px;
+  }
+  .c-w { background: #f5c842; color: #1a1a2e; }
+  .c-d { background: #a78bfa; color: #fff; }
+  .c-z { background: #34d399; color: #065f46; }
+  .c-n { background: #6b7280; color: #fff; opacity: .5; }
+  .wdz-row-content { flex: 1; }
+  .wdz-main { font-size: 12px; color: #f0f0f0; font-weight: 600; margin-bottom: 2px; }
+  .wdz-ex { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+  .wdz-ex span { color: #f5c842; }
+  .cycle-badge {
+    background: #b45309; color: #fef9c3;
+    border-radius: 6px; padding: 3px 9px;
+    font-size: 10px; font-weight: 700;
+    display: inline-block; margin-top: 6px;
+  }
+  .strikethrough { text-decoration: line-through; opacity: .5; }
+</style>
+</head>
+<body>
+
+<h1>數恩的說帖</h1>
+<p class="subtitle">問答讚融入對話，照著走就對了</p>
+
+<!-- OPENER -->
+<p class="section-title">開場</p>
+<div class="opener">
+  <div class="label">數恩開場</div>
+  <div class="text">「來挑戰一局嗎？打贏有星巴克！」</div>
+  <div class="sub">✦ 舉起卡片正面</div>
+</div>
+
+<!-- 問答讚 -->
+<div class="wdz-box">
+  <div class="wdz-box-title">▶ 問 → 答 → 讚　循環原則</div>
+
+  <div class="wdz-row">
+    <div class="wdz-circle c-w">問</div>
+    <div class="wdz-row-content">
+      <div class="wdz-main">問他一個關於他自己的事</div>
+      <div class="wdz-ex">
+        「你們學校是附近的嗎？」「有在玩象棋嗎？還是比較喜歡拉密？」「你象棋下多久了？」<br>
+        <span>→ 問擅長的、問生活的、問他們在乎的</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wdz-row">
+    <div class="wdz-circle c-d">答</div>
+    <div class="wdz-row-content">
+      <div class="wdz-main">專注聽，找他最得意的「細節」</div>
+      <div class="wdz-ex"><span>→ 抓住他說話時眼睛亮起來的那個點</span></div>
+    </div>
+  </div>
+
+  <div class="wdz-row">
+    <div class="wdz-circle c-z">讚</div>
+    <div class="wdz-row-content">
+      <div class="wdz-main">針對細節，給具體的真心讚美</div>
+      <div class="wdz-ex">
+        ❌「哇你好厲害喔」（太模糊）<br>
+        ✅ <span>「三年？！那你很有可能是班上最強的吧？！」</span>
+      </div>
+      <div><span class="cycle-badge">讚完 → 再問一個 → 循環繼續</span></div>
+    </div>
+  </div>
+
+  <div class="wdz-row" style="opacity:.5">
+    <div class="wdz-circle c-n"><span class="strikethrough">說</span></div>
+    <div class="wdz-row-content">
+      <div class="wdz-main strikethrough">「我們是補習班，我們課程⋯⋯」</div>
+      <div class="wdz-ex">✗ 今天不說課程、不說補習班</div>
+    </div>
+  </div>
+</div>
+
+<!-- BRANCH A -->
+<p class="section-title">A｜學生停下來問</p>
+<div class="branch-wrap">
+  <div class="branch-header"><span class="badge ba">A</span>「這是什麼活動？」</div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div><div class="bubble bubble-student">「這是什麼活動？」</div></div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="bubble bubble-shu">「我們在辦桌遊積分賽～有象棋也有拉密！前三名公告在排行榜，當天積分最高的人得一杯星巴克。」<br><span style="font-size:11px;opacity:.7">（翻到卡片背面）</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="wdz wdz-w">問</div>
+      <div class="bubble bubble-shu">「你有在玩象棋嗎？還是比較喜歡拉密？」</div>
+    </div>
+  </div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div>
+      <div class="wdz wdz-d">答</div>
+      <div class="bubble bubble-student">「我有在下象棋，下大概兩年了」</div>
+    </div>
+  </div>
+  <p class="note">→ 抓住細節：「兩年」</p>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="wdz wdz-z">讚</div>
+      <div class="bubble bubble-shu">「兩年！那你開局應該就知道對手幾斤幾兩了吧？」</div>
+    </div>
+  </div>
+
+  <span class="cycle">讚完 → 再問一個 → 問答讚循環</span>
+
+  <div class="row" style="margin-top:8px">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="wdz wdz-w">問</div>
+      <div class="bubble bubble-shu">「你平常都跟誰下？朋友還是網路上？」</div>
+    </div>
+  </div>
+
+  <div class="arrow">↓ 聊開了，自然帶入</div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="bubble bubble-success">「先掃一下加入，30 秒就好！沒有人的話直接上，需要等的話 LINE 通知你～」</div>
+    </div>
+  </div>
+</div>
+
+<!-- BRANCH B -->
+<p class="section-title">B｜學生說不會</p>
+<div class="branch-wrap">
+  <div class="branch-header"><span class="badge bb">B</span>「我不會啦」</div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div><div class="bubble bubble-student">「我不會啦，這我不熟」</div></div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="wdz wdz-w">問</div>
+      <div class="bubble bubble-shu">「沒在玩棋類喔～那你平常都玩什麼？」</div>
+    </div>
+  </div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div>
+      <div class="wdz wdz-d">答</div>
+      <div class="bubble bubble-student">「就打電動啊」</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="wdz wdz-z">讚</div>
+      <div class="bubble bubble-shu">「電動！打什麼？」← 繼續問答讚</div>
+    </div>
+  </div>
+
+  <div class="arrow">↓ 聊開後</div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="bubble bubble-shu">「拉密其實超好學，5 分鐘上手。輸了也有 +1 分，不虧的，要試試嗎？」</div>
+    </div>
+  </div>
+</div>
+
+<!-- BRANCH C -->
+<p class="section-title">C｜學生說沒時間</p>
+<div class="branch-wrap">
+  <div class="branch-header"><span class="badge bc">C</span>「要回家啦」</div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div><div class="bubble bubble-student">「我要回家啦」／「沒空」</div></div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div><div class="bubble bubble-shu">「掰掰～」</div></div>
+  </div>
+
+  <div class="tip">💡 不強求。輕鬆揮手，留個好印象，說不定明天他自己回來。</div>
+</div>
+
+<!-- BRANCH D -->
+<p class="section-title">D｜學生問「加 LINE 幹嘛？」</p>
+<div class="branch-wrap">
+  <div class="branch-header"><span class="badge bd">D</span>「加 LINE 做什麼？」</div>
+
+  <div class="row right">
+    <div class="avatar av-student">學生</div>
+    <div><div class="bubble bubble-student">「加 LINE 做什麼？感覺很奇怪」</div></div>
+  </div>
+
+  <div class="row">
+    <div class="avatar av-shu">數恩</div>
+    <div>
+      <div class="bubble bubble-shu">「三個原因——<br>① 你可以去附近晃，輪到你通知你回來<br>② 每天結束後積分排名在裡面公布<br>③ 有問題可以在裡面問」</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip-red">⚠️ 今天不提補習班和英文課。只要他覺得「這群人很好聊」就成功了。</div>
+
+</body>
+</html>
