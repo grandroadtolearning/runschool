@@ -1,346 +1,456 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>畢業季拍照攤位 — 顧客旅程</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Noto Sans TC', 'Droid Sans Fallback', sans-serif;
-    background: #f8f9fa;
-    padding: 24px;
-    font-size: 13px;
-    color: #111;
-    max-width: 720px;
-    margin: 0 auto;
+  :root{
+    --navy:#1B2E4B;
+    --gold:#C9A84C;
+    --bg:#FAFAFA;
+    --text:#222222;
+    --muted:#5b6470;
+    --line:#e3e5ea;
   }
-  h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .subtitle { font-size: 11px; color: #888; margin-bottom: 18px; }
-  .section-title {
-    font-size: 12px; font-weight: 700;
-    margin: 16px 0 8px;
-    padding-left: 8px;
-    border-left: 3px solid #6366f1;
-    color: #111;
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
   }
-  .branch-wrap {
-    background: #fff;
-    border-radius: 10px;
-    padding: 14px;
-    margin-bottom: 14px;
-    border: 1px solid #e2e8f0;
-    page-break-inside: avoid;
-  }
-  .branch-header {
-    font-size: 12px; font-weight: 700;
-    margin-bottom: 10px;
-    display: flex; align-items: center; gap: 6px;
-    color: #444;
-  }
-  .badge {
-    border-radius: 20px; padding: 2px 9px;
-    font-size: 10px; font-weight: 700; color: #fff;
-    display: inline-block;
-  }
-  .ba { background: #6366f1; }
-  .bb { background: #f97316; }
-  .bc { background: #94a3b8; }
-  .bd { background: #22c55e; }
 
-  /* Chat rows */
-  .row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
-  .row.right { flex-direction: row-reverse; }
-  .avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  /* ---------- Header ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:40px 20px 48px;
+    text-align:center;
   }
-  .av-shu { background: #7c3aed; color: #fff; }
-  .av-student { background: #94a3b8; color: #fff; }
-  .bubble {
-    max-width: 82%; padding: 8px 12px;
-    border-radius: 10px; font-size: 12.5px; line-height: 1.7;
+  header .tag{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:2px;
+    padding:4px 14px;
+    border-radius:20px;
+    margin-bottom:18px;
   }
-  .bubble-shu { background: #ede9fe; color: #3b0764; border-bottom-left-radius: 3px; }
-  .bubble-student { background: #f1f5f9; color: #222; border-bottom-right-radius: 3px; }
-  .bubble-success { background: #f0fdf4; color: #166534; border: 1.5px solid #86efac; }
+  header h1{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  header p{
+    margin-top:12px;
+    color:#c3cbd8;
+    font-size:15px;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .progress-wrap{
+    max-width:560px;
+    margin:26px auto 0;
+  }
+  .progress-meta{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#aab4c4;
+    margin-bottom:8px;
+  }
+  .progress-meta b{color:var(--gold);}
+  .progress-bar{
+    height:6px;
+    background:rgba(255,255,255,.15);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0;
+    background:var(--gold);
+    border-radius:6px;
+    transition:width .4s ease;
+  }
 
-  .wdz {
-    display: inline-block; border-radius: 20px;
-    padding: 1px 7px; font-size: 10px; font-weight: 700;
-    margin-bottom: 3px;
+  /* ---------- Journey ---------- */
+  main{
+    max-width:680px;
+    margin:0 auto;
+    padding:36px 18px 60px;
   }
-  .wdz-w { background: #f5c842; color: #1a1a2e; }
-  .wdz-d { background: #a78bfa; color: #fff; }
-  .wdz-z { background: #34d399; color: #065f46; }
 
-  .note { font-size: 11px; color: #888; margin-left: 36px; margin-bottom: 6px; font-style: italic; }
-  .cycle {
-    background: #1a1a2e; color: #f5c842;
-    border-radius: 6px; padding: 4px 10px;
-    font-size: 10px; font-weight: 700;
-    display: inline-block; margin: 4px 0 4px 36px;
+  .step{
+    position:relative;
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--line);
+    border-radius:14px;
+    margin-bottom:14px;
+    transition:border-color .25s ease, box-shadow .25s ease, transform .15s ease;
+    overflow:hidden;
   }
-  .arrow { color: #cbd5e1; font-size: 13px; text-align: center; margin: 2px 0 4px; }
-  .tip {
-    border-left: 3px solid #f59e0b;
-    background: #fffbeb; color: #92400e;
-    font-size: 11px; padding: 8px 12px; border-radius: 6px; margin-top: 6px;
+  .step.active{
+    border-color:var(--gold);
+    border-left-color:var(--gold);
+    box-shadow:0 8px 26px rgba(27,46,75,.12);
   }
-  .tip-red {
-    border-left: 3px solid #fca5a5;
-    background: #fef2f2; color: #991b1b;
-    font-size: 11px; padding: 8px 12px; border-radius: 6px; margin-top: 10px;
-  }
-  .opener {
-    background: #6366f1; color: #fff;
-    border-radius: 10px; padding: 12px 14px;
-    margin-bottom: 8px;
-  }
-  .opener .label { font-size: 10px; opacity: .7; margin-bottom: 3px; }
-  .opener .text { font-size: 13px; line-height: 1.6; }
-  .opener .sub { font-size: 11px; opacity: .75; margin-top: 3px; }
 
-  /* 問答讚 box */
-  .wdz-box {
-    background: #1a1a2e; border-radius: 10px;
-    padding: 14px; margin-bottom: 14px;
-    page-break-inside: avoid;
+  .step-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 18px;
+    cursor:pointer;
+    user-select:none;
   }
-  .wdz-box-title {
-    font-size: 13px; font-weight: 700; color: #f5c842;
-    text-align: center; margin-bottom: 12px; letter-spacing: 1px;
+  .num{
+    flex:0 0 auto;
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--navy);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    font-size:16px;
+    transition:background .25s ease;
   }
-  .wdz-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
-  .wdz-circle {
-    width: 34px; height: 34px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; font-weight: 800; flex-shrink: 0; margin-top: 2px;
+  .step.active .num{background:var(--gold);color:var(--navy);}
+  .step.done .num{background:var(--gold);color:var(--navy);}
+  .head-text{flex:1;min-width:0;}
+  .head-text h3{
+    font-size:17px;
+    font-weight:700;
+    color:var(--navy);
   }
-  .c-w { background: #f5c842; color: #1a1a2e; }
-  .c-d { background: #a78bfa; color: #fff; }
-  .c-z { background: #34d399; color: #065f46; }
-  .c-n { background: #6b7280; color: #fff; opacity: .5; }
-  .wdz-row-content { flex: 1; }
-  .wdz-main { font-size: 12px; color: #f0f0f0; font-weight: 600; margin-bottom: 2px; }
-  .wdz-ex { font-size: 11px; color: #9ca3af; line-height: 1.5; }
-  .wdz-ex span { color: #f5c842; }
-  .cycle-badge {
-    background: #b45309; color: #fef9c3;
-    border-radius: 6px; padding: 3px 9px;
-    font-size: 10px; font-weight: 700;
-    display: inline-block; margin-top: 6px;
+  .head-text .desc{
+    font-size:14px;
+    color:var(--muted);
+    margin-top:3px;
   }
-  .strikethrough { text-decoration: line-through; opacity: .5; }
+  .chevron{
+    flex:0 0 auto;
+    color:var(--gold);
+    font-size:13px;
+    transition:transform .3s ease;
+  }
+  .step.active .chevron{transform:rotate(180deg);}
+
+  .detail{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .detail-inner{
+    padding:0 18px 20px 70px;
+  }
+  .step-img{
+    display:block;
+    width:100%;
+    border-radius:10px;
+    margin-bottom:14px;
+    border:1px solid var(--line);
+    aspect-ratio:16 / 9;
+    object-fit:cover;
+    background:var(--navy);
+  }
+  .detail-label{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .detail ul{
+    list-style:none;
+  }
+  .detail li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:7px;
+    font-size:14.5px;
+    color:var(--text);
+  }
+  .detail li::before{
+    content:"";
+    position:absolute;
+    left:0;top:10px;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+
+  /* connector line between cards */
+  .connector{
+    width:2px;
+    height:14px;
+    background:var(--line);
+    margin:-7px auto;
+    position:relative;
+    z-index:0;
+  }
+
+  /* ---------- Nav buttons ---------- */
+  .controls{
+    position:sticky;
+    bottom:0;
+    background:linear-gradient(to top,var(--bg) 70%,transparent);
+    padding:16px 18px 22px;
+    display:flex;
+    gap:12px;
+    max-width:680px;
+    margin:0 auto;
+  }
+  .btn{
+    flex:1;
+    padding:13px 18px;
+    border-radius:30px;
+    border:none;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:inherit;
+    transition:opacity .2s ease, transform .1s ease;
+  }
+  .btn:active{transform:scale(.98);}
+  .btn-prev{
+    background:#fff;
+    color:var(--navy);
+    border:1px solid var(--line);
+  }
+  .btn-next{
+    background:var(--navy);
+    color:#fff;
+  }
+  .btn-next.finish{background:var(--gold);color:var(--navy);}
+  .btn:disabled{opacity:.4;cursor:default;}
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12.5px;
+    padding:0 20px 30px;
+  }
+  footer b{color:var(--navy);}
+
+  @media (max-width:480px){
+    header h1{font-size:23px;}
+    .detail-inner{padding-left:18px;}
+    .head-text h3{font-size:16px;}
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
-  <a href="index.html" style="background:#6366f1;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;">數恩說帖</a>
-  <a href="roles.svg" style="background:#f1f5f9;color:#444;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">四人分工圖</a>
-  <a href="map.svg" style="background:#f1f5f9;color:#444;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">場地圖</a>
+<header>
+  <span class="tag">畢業季拍照攤位</span>
+  <h1>顧客旅程 ｜ 7 步驟</h1>
+  <p>從學生走出校門那一刻，到他加入 LINE 帶走資訊。點任一步驟展開「設計重點」，或用下方按鈕一步步走完。</p>
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span>旅程進度</span>
+      <span><b id="progNum">0</b> / 7</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+  </div>
+</header>
+
+<main id="journey"></main>
+
+<div class="controls">
+  <button class="btn btn-prev" id="prevBtn" disabled>← 上一步</button>
+  <button class="btn btn-next" id="nextBtn">開始旅程 →</button>
 </div>
 
-<h1>數恩的說帖</h1>
-<p class="subtitle">問答讚融入對話，照著走就對了</p>
+<footer>
+  核心提醒：照片與包裝要好看到學生<b>願意主動發限動</b> — 那才是真正的廣告版位。
+</footer>
 
-<!-- OPENER -->
-<p class="section-title">開場</p>
-<div class="opener">
-  <div class="label">數恩開場</div>
-  <div class="text">「來挑戰一局嗎？打贏有星巴克！」</div>
-  <div class="sub">✦ 舉起卡片正面</div>
-</div>
+<script>
+const steps = [
+  {
+    title: "遠處看到，停下來",
+    desc: "學生走出校門，遠遠看到攤位，被吸引停下來。",
+    img: "畢業拍照-設計/step1-banner.jpg",
+    imgAlt: "校門口白牆前的深藍易拉展，學生停下抬頭看",
+    points: [
+      "看板要在 10 公尺外就看得到。",
+      "深色背景在學校白牆前跳出來。",
+      "主訴求只有一句：「免費畢業拍照」。"
+    ]
+  },
+  {
+    title: "上前了解，登記報名",
+    desc: "學生走近，了解活動，填報名表或掃 QR Code。",
+    img: "畢業拍照-設計/step2-signup.png",
+    imgAlt: "工作人員主動招呼，學生掃 QR Code 報名",
+    points: [
+      "報名流程要在 30 秒內完成。",
+      "桌上有立牌說明等候時間。",
+      "現場工作人員主動搭話，不站著等人來。"
+    ]
+  },
+  {
+    title: "等候",
+    desc: "學生等待輪到自己。",
+    img: "畢業拍照-設計/step3-waiting.jpg",
+    imgAlt: "有設計感的等候區，WAIT TIME 立牌，學生輕鬆聊天",
+    points: [
+      "等候區要有設計，讓人不無聊。",
+      "可以看其他人拍照的過程。",
+      "等候本身也是體驗的一部分。"
+    ]
+  },
+  {
+    title: "拍照",
+    desc: "進入拍照區，在背景板前拍照。",
+    img: "畢業拍照-設計/step4-photobooth.jpg",
+    imgAlt: "深藍 CLASS OF 2025 背景板 + 環形補光燈的專業拍照區",
+    points: [
+      "背景板夠專業：深色底 + CLASS OF 2025 大字。",
+      "地面有站位標記，學生知道站哪裡最好看。",
+      "補光燈讓照片好看；道具限 3 種以內。"
+    ]
+  },
+  {
+    title: "收到照片",
+    desc: "照片現場印出，裝進品牌信封交給學生。",
+    img: "畢業拍照-設計/step5-envelope.jpg",
+    imgAlt: "手寫感「給未來高中生的你」品牌信封，照片露出一角",
+    points: [
+      "信封是體驗的高潮，不只是一張紙。",
+      "霧白底 + 深藍文字 + 手寫感字體「給未來高中生的你」。",
+      "學生拿著信封會想拍照發限動。"
+    ]
+  },
+  {
+    title: "DIY 放照片進信封",
+    desc: "學生自己把照片放進信封，可以加上扣環掛在書包。",
+    img: "畢業拍照-設計/step6-diy.png",
+    imgAlt: "學生把照片放進品牌信封，桌上有金色扣環",
+    points: [
+      "動手做增加參與感。",
+      "讓學生多停留 2–3 分鐘。",
+      "這個動作本身會讓學生更記得這個體驗。"
+    ]
+  },
+  {
+    title: "加入 LINE，帶走資訊",
+    desc: "離開前掃 QR Code 加入 LINE 官方帳號，看到公告上已有其他人加入。",
+    img: "畢業拍照-設計/step7-line.png",
+    imgAlt: "學生掃 LINE QR Code，看板顯示「已有多人加入」社群證明",
+    points: [
+      "社群證明（「已有 XX 人加入」）降低心理門檻。",
+      "這是整個旅程的轉換點。",
+      "從體驗者變成潛在學員。"
+    ]
+  }
+];
 
-<!-- 問答讚 -->
-<div class="wdz-box">
-  <div class="wdz-box-title">▶ 問 → 答 → 讚　循環原則</div>
+const journey = document.getElementById('journey');
+let current = -1; // -1 = 尚未開始
 
-  <div class="wdz-row">
-    <div class="wdz-circle c-w">問</div>
-    <div class="wdz-row-content">
-      <div class="wdz-main">問他一個關於他自己的事</div>
-      <div class="wdz-ex">
-        「你們學校是附近的嗎？」「有在玩象棋嗎？還是比較喜歡拉密？」「你象棋下多久了？」<br>
-        <span>→ 問擅長的、問生活的、問他們在乎的</span>
+steps.forEach((s, i) => {
+  if (i > 0) {
+    const c = document.createElement('div');
+    c.className = 'connector';
+    journey.appendChild(c);
+  }
+  const el = document.createElement('div');
+  el.className = 'step';
+  el.dataset.index = i;
+  el.innerHTML = `
+    <div class="step-head">
+      <div class="num">${i + 1}</div>
+      <div class="head-text">
+        <h3>${s.title}</h3>
+        <div class="desc">${s.desc}</div>
       </div>
+      <div class="chevron">▼</div>
     </div>
-  </div>
-
-  <div class="wdz-row">
-    <div class="wdz-circle c-d">答</div>
-    <div class="wdz-row-content">
-      <div class="wdz-main">專注聽，找他最得意的「細節」</div>
-      <div class="wdz-ex"><span>→ 抓住他說話時眼睛亮起來的那個點</span></div>
-    </div>
-  </div>
-
-  <div class="wdz-row">
-    <div class="wdz-circle c-z">讚</div>
-    <div class="wdz-row-content">
-      <div class="wdz-main">針對細節，給具體的真心讚美</div>
-      <div class="wdz-ex">
-        ❌「哇你好厲害喔」（太模糊）<br>
-        ✅ <span>「三年？！那你很有可能是班上最強的吧？！」</span>
+    <div class="detail">
+      <div class="detail-inner">
+        ${s.img ? `<img class="step-img" src="${s.img}" alt="${s.imgAlt || ''}" loading="lazy">` : ''}
+        <span class="detail-label">設計重點 ｜ 為什麼這樣設計</span>
+        <ul>${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
       </div>
-      <div><span class="cycle-badge">讚完 → 再問一個 → 循環繼續</span></div>
-    </div>
-  </div>
+    </div>`;
+  el.querySelector('.step-head').addEventListener('click', () => select(i));
+  journey.appendChild(el);
+});
 
-  <div class="wdz-row" style="opacity:.5">
-    <div class="wdz-circle c-n"><span class="strikethrough">說</span></div>
-    <div class="wdz-row-content">
-      <div class="wdz-main strikethrough">「我們是補習班，我們課程⋯⋯」</div>
-      <div class="wdz-ex">✗ 今天不說課程、不說補習班</div>
-    </div>
-  </div>
-</div>
+const stepEls = [...document.querySelectorAll('.step')];
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const progFill = document.getElementById('progFill');
+const progNum = document.getElementById('progNum');
 
-<!-- BRANCH A -->
-<p class="section-title">A｜學生停下來問</p>
-<div class="branch-wrap">
-  <div class="branch-header"><span class="badge ba">A</span>「這是什麼活動？」</div>
+function setOpen(el, open) {
+  const d = el.querySelector('.detail');
+  d.style.maxHeight = open ? d.scrollHeight + 'px' : '0';
+}
 
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div><div class="bubble bubble-student">「這是什麼活動？」</div></div>
-  </div>
+function select(i, scroll = false) {
+  current = i;
+  stepEls.forEach((el, idx) => {
+    const active = idx === i;
+    el.classList.toggle('active', active);
+    el.classList.toggle('done', idx < i);
+    setOpen(el, active);
+  });
+  if (scroll && stepEls[i]) {
+    stepEls[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  updateUI();
+}
 
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="bubble bubble-shu">「我們在辦桌遊積分賽～有象棋也有拉密！前三名公告在排行榜，當天積分最高的人得一杯星巴克。」<br><span style="font-size:11px;opacity:.7">（翻到卡片背面）</span></div>
-    </div>
-  </div>
+function updateUI() {
+  const reached = current + 1;
+  progNum.textContent = Math.max(0, reached);
+  progFill.style.width = (Math.max(0, reached) / steps.length * 100) + '%';
 
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="wdz wdz-w">問</div>
-      <div class="bubble bubble-shu">「你有在玩象棋嗎？還是比較喜歡拉密？」</div>
-    </div>
-  </div>
+  prevBtn.disabled = current <= 0;
+  if (current >= steps.length - 1) {
+    nextBtn.textContent = '重新開始 ↺';
+    nextBtn.classList.add('finish');
+  } else if (current < 0) {
+    nextBtn.textContent = '開始旅程 →';
+    nextBtn.classList.remove('finish');
+  } else {
+    nextBtn.textContent = '下一步 →';
+    nextBtn.classList.remove('finish');
+  }
+}
 
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div>
-      <div class="wdz wdz-d">答</div>
-      <div class="bubble bubble-student">「我有在下象棋，下大概兩年了」</div>
-    </div>
-  </div>
-  <p class="note">→ 抓住細節：「兩年」</p>
+nextBtn.addEventListener('click', () => {
+  if (current >= steps.length - 1) { select(0, true); return; }
+  select(current + 1, true);
+});
+prevBtn.addEventListener('click', () => {
+  if (current > 0) select(current - 1, true);
+});
 
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="wdz wdz-z">讚</div>
-      <div class="bubble bubble-shu">「兩年！那你開局應該就知道對手幾斤幾兩了吧？」</div>
-    </div>
-  </div>
+// keep open card height correct on resize
+window.addEventListener('resize', () => {
+  if (current >= 0) setOpen(stepEls[current], true);
+});
 
-  <span class="cycle">讚完 → 再問一個 → 問答讚循環</span>
+// recompute open height once images finish loading (async load can cut off the panel)
+document.querySelectorAll('.step-img').forEach(img => {
+  img.addEventListener('load', () => {
+    const step = img.closest('.step');
+    if (step && step.classList.contains('active')) setOpen(step, true);
+  });
+});
 
-  <div class="row" style="margin-top:8px">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="wdz wdz-w">問</div>
-      <div class="bubble bubble-shu">「你平常都跟誰下？朋友還是網路上？」</div>
-    </div>
-  </div>
-
-  <div class="arrow">↓ 聊開了，自然帶入</div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="bubble bubble-success">「先掃一下加入，30 秒就好！沒有人的話直接上，需要等的話 LINE 通知你～」</div>
-    </div>
-  </div>
-</div>
-
-<!-- BRANCH B -->
-<p class="section-title">B｜學生說不會</p>
-<div class="branch-wrap">
-  <div class="branch-header"><span class="badge bb">B</span>「我不會啦」</div>
-
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div><div class="bubble bubble-student">「我不會啦，這我不熟」</div></div>
-  </div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="wdz wdz-w">問</div>
-      <div class="bubble bubble-shu">「沒在玩棋類喔～那你平常都玩什麼？」</div>
-    </div>
-  </div>
-
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div>
-      <div class="wdz wdz-d">答</div>
-      <div class="bubble bubble-student">「就打電動啊」</div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="wdz wdz-z">讚</div>
-      <div class="bubble bubble-shu">「電動！打什麼？」← 繼續問答讚</div>
-    </div>
-  </div>
-
-  <div class="arrow">↓ 聊開後</div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="bubble bubble-shu">「拉密其實超好學，5 分鐘上手。輸了也有 +1 分，不虧的，要試試嗎？」</div>
-    </div>
-  </div>
-</div>
-
-<!-- BRANCH C -->
-<p class="section-title">C｜學生說沒時間</p>
-<div class="branch-wrap">
-  <div class="branch-header"><span class="badge bc">C</span>「要回家啦」</div>
-
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div><div class="bubble bubble-student">「我要回家啦」／「沒空」</div></div>
-  </div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div><div class="bubble bubble-shu">「掰掰～」</div></div>
-  </div>
-
-  <div class="tip">💡 不強求。輕鬆揮手，留個好印象，說不定明天他自己回來。</div>
-</div>
-
-<!-- BRANCH D -->
-<p class="section-title">D｜學生問「加 LINE 幹嘛？」</p>
-<div class="branch-wrap">
-  <div class="branch-header"><span class="badge bd">D</span>「加 LINE 做什麼？」</div>
-
-  <div class="row right">
-    <div class="avatar av-student">學生</div>
-    <div><div class="bubble bubble-student">「加 LINE 做什麼？感覺很奇怪」</div></div>
-  </div>
-
-  <div class="row">
-    <div class="avatar av-shu">數恩</div>
-    <div>
-      <div class="bubble bubble-shu">「三個原因——<br>① 你可以去附近晃，輪到你通知你回來<br>② 每天結束後積分排名在裡面公布<br>③ 有問題可以在裡面問」</div>
-    </div>
-  </div>
-</div>
-
-<div class="tip-red">⚠️ 今天不提補習班和英文課。只要他覺得「這群人很好聊」就成功了。</div>
-
+updateUI();
+</script>
 </body>
 </html>
