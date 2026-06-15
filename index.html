@@ -1,456 +1,453 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>畢業季拍照攤位 — 顧客旅程</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>升高一英文，別只是「補更多」｜得勝者文教 三升一英文試聽</title>
+<meta name="description" content="會考 2000 單字，到學測要 7000 字。升高一英文的落差，不是補更多就追得上。三師合一——課內紮實、愛上英文、學會怎麼讀。免費試聽開放報名。" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet" />
 <style>
-  :root{
-    --navy:#1B2E4B;
-    --gold:#C9A84C;
-    --bg:#FAFAFA;
-    --text:#222222;
-    --muted:#5b6470;
-    --line:#e3e5ea;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
+:root{
+  --brand:#7B2252; --brand-dark:#4A1133; --brand-light:#f3e8f0;
+  --gold:#C9A84C; --ink:#1a1a1a; --ink-2:#444; --ink-3:#888;
+  --bg:#ffffff; --r:14px; --r-lg:24px; --shadow:0 8px 32px rgba(123,34,82,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans TC",sans-serif;color:var(--ink);background:var(--bg);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;word-break:keep-all;text-wrap:balance}
+p{text-wrap:pretty;word-break:keep-all}
+section{padding:96px 24px}
+.wrap{max-width:1080px;margin:0 auto}
+.narrow{max-width:680px;margin:0 auto}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
 
-  /* ---------- Header ---------- */
-  header{
-    background:var(--navy);
-    color:#fff;
-    padding:40px 20px 48px;
-    text-align:center;
-  }
-  header .tag{
-    display:inline-block;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    font-size:13px;
-    letter-spacing:2px;
-    padding:4px 14px;
-    border-radius:20px;
-    margin-bottom:18px;
-  }
-  header h1{
-    font-size:28px;
-    font-weight:700;
-    letter-spacing:1px;
-  }
-  header p{
-    margin-top:12px;
-    color:#c3cbd8;
-    font-size:15px;
-    max-width:560px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .progress-wrap{
-    max-width:560px;
-    margin:26px auto 0;
-  }
-  .progress-meta{
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(15,5,9,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:padding .3s ease,box-shadow .3s ease}
+nav.scrolled{padding:12px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;color:#fff;text-decoration:none}
+.v-badge{background:var(--brand);color:#fff;font-size:11px;font-weight:900;letter-spacing:.05em;padding:3px 7px;border-radius:6px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:14px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:var(--brand);color:#fff;font-size:13px;font-weight:700;padding:8px 20px;border-radius:100px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--brand-dark)}
+@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0f0509 0%,#2a0d1e 100%);color:#fff;padding:160px 24px 110px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;top:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(201,168,76,.18),transparent 70%);pointer-events:none}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;text-align:center}
+.hero-badge{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.5);color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.08em;padding:7px 18px;border-radius:100px;margin-bottom:26px}
+.hero h1{font-size:clamp(30px,5.5vw,52px);line-height:1.28;font-weight:900;margin-bottom:22px}
+.hero h1 .hl{color:var(--gold)}
+.hero-sub{font-size:clamp(16px,2.2vw,19px);color:rgba(255,255,255,.8);max-width:600px;margin:0 auto 38px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:700;text-decoration:none;padding:15px 34px;border-radius:100px;transition:transform .3s ease,background .2s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 30px rgba(123,34,82,.4)}
+.btn-primary:hover{background:#8f2a61}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.hero-teachers{margin-top:54px;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:420px;margin-left:auto;margin-right:auto}
+.ht-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 22px;text-align:left;width:100%}
+.ht-chip .n{font-weight:900;font-size:16px;color:#fff}
+.ht-chip .r{font-size:12.5px;color:var(--gold);margin-top:3px}
+
+/* PAIN */
+.pain{background:#fff}
+.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--brand);text-transform:uppercase;margin-bottom:16px}
+.pain h2{font-size:clamp(25px,4vw,38px);line-height:1.35;margin-bottom:26px}
+.pain p{color:var(--ink-2);font-size:17px;margin-bottom:18px}
+.gap-row{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin:38px 0 8px}
+.gap-card{background:var(--brand-light);border-radius:var(--r);padding:22px 18px;text-align:center}
+.gap-card .lab{font-size:13px;color:var(--ink-3);font-weight:700;margin-bottom:8px}
+.gap-card .big{font-family:"Noto Serif TC",serif;font-size:clamp(26px,5vw,40px);font-weight:900;color:var(--brand);line-height:1.1}
+.gap-card .small{font-size:13px;color:var(--ink-2);margin-top:8px}
+.gap-arrow{display:flex;align-items:center;font-size:28px;color:var(--gold);font-weight:900}
+.climb{margin:42px 0 6px}
+.climb svg{width:100%;height:auto;display:block}
+.climb text{font-family:"Noto Sans TC",sans-serif}
+.climb-take{margin-top:16px;background:var(--brand-light);border-radius:var(--r);padding:16px 20px;font-size:16px;color:var(--brand-dark);line-height:1.75;text-align:center}
+.climb-take b{color:var(--brand)}
+.pain-quote{border-left:3px solid var(--brand);padding:6px 0 6px 22px;font-style:italic;color:var(--ink);font-size:18px;margin-top:34px;line-height:1.8}
+.sample{margin-top:30px;background:#0f0509;color:#eee;border-radius:var(--r);padding:24px 26px;font-size:14.5px}
+.sample .st{color:var(--gold);font-weight:700;font-size:12.5px;letter-spacing:.1em;margin-bottom:12px}
+.sample code{font-family:ui-monospace,Menlo,monospace;background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;color:#fff}
+.sample .q{margin-bottom:10px;line-height:1.7}
+
+/* WEDGE / DIFFERENTIATION */
+.wedge{background:linear-gradient(160deg,#2a0d1e,#4A1133);color:#fff;text-align:center}
+.wedge h2{font-size:clamp(25px,4.4vw,40px);line-height:1.35;margin-bottom:18px}
+.wedge h2 .hl{color:var(--gold)}
+.wedge .lead{color:rgba(255,255,255,.78);font-size:17px;max-width:600px;margin:0 auto 50px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:820px;margin:0 auto;text-align:left}
+.vs-col{border-radius:var(--r-lg);padding:30px 26px}
+.vs-old{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.vs-new{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.45)}
+.vs-col .tag{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.vs-old .tag{color:rgba(255,255,255,.55)}
+.vs-new .tag{color:var(--gold)}
+.vs-col ul{list-style:none}
+.vs-col li{padding:9px 0 9px 26px;position:relative;font-size:15.5px;border-top:1px solid rgba(255,255,255,.08)}
+.vs-col li:first-child{border-top:none}
+.vs-old li::before{content:"✕";position:absolute;left:0;color:rgba(255,255,255,.4);font-weight:900}
+.vs-new li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:900}
+.vs-new li{color:#fff}.vs-old li{color:rgba(255,255,255,.62)}
+.belief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:680px;margin:46px auto 0;text-align:left}
+.belief{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.4);border-radius:var(--r-lg);padding:28px 24px}
+.belief .bn{font-family:"Noto Serif TC",serif;font-size:20px;font-weight:900;color:var(--gold);margin-bottom:12px;line-height:1.4}
+.belief p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.75;margin:0}
+@media(max-width:768px){.belief-grid{grid-template-columns:1fr;max-width:420px}}
+
+/* TEACHERS */
+.teachers{background:linear-gradient(180deg,#fff 0%,var(--brand-light) 100%)}
+.sec-head{text-align:center;margin-bottom:54px}
+.sec-head h2{font-size:clamp(25px,4.2vw,38px);margin-bottom:14px}
+.sec-head p{color:var(--ink-2);font-size:17px;max-width:620px;margin:0 auto}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.t-card{border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);overflow:hidden;background:#0f0509;box-shadow:0 16px 48px rgba(0,0,0,.35);display:flex;flex-direction:column;transition:transform .3s ease}
+.t-card:hover{transform:translateY(-4px)}
+.t-top{background:linear-gradient(160deg,#1a0812,#2a0d1e);color:#fff;padding:30px 26px;position:relative}
+.t-photo{width:76px;height:76px;border-radius:50%;overflow:hidden;
+  border:2px solid rgba(201,168,76,.5);
+  background:#1a0812;
+  position:absolute;top:22px;right:22px}
+.t-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.t-role{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(201,168,76,.5);border-radius:100px;padding:4px 12px;margin-bottom:16px}
+.t-name{font-family:"Noto Serif TC",serif;font-size:26px;font-weight:900}
+.t-name span{font-size:14px;font-weight:400;color:rgba(255,255,255,.6);margin-left:8px}
+.t-tagline{font-size:14px;color:rgba(255,255,255,.78);margin-top:10px;line-height:1.7}
+.t-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;background:#0f0509}
+.t-feat{list-style:none;margin-bottom:8px}
+.t-feat li{padding:10px 0 10px 28px;position:relative;font-size:14.5px;color:rgba(255,255,255,.72);border-top:1px dashed rgba(255,255,255,.1)}
+.t-feat li:first-child{border-top:none}
+.t-feat li::before{content:"●";position:absolute;left:6px;color:var(--gold);font-size:9px;top:15px}
+.t-feat li b{color:#fff;font-weight:700}
+.t-proof{margin-top:auto;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);border-radius:var(--r);padding:14px 16px;font-size:13.5px;color:rgba(255,255,255,.9);font-weight:500;line-height:1.65}
+.combo{margin-top:44px;text-align:center;background:var(--brand-light);border-radius:var(--r-lg);padding:34px 26px}
+.combo h3{font-size:clamp(19px,3vw,26px);color:var(--brand-dark);margin-bottom:10px}
+.combo p{color:var(--ink-2);font-size:16px;max-width:640px;margin:0 auto}
+
+/* 輪播點 */
+.t-dots{display:none;justify-content:center;gap:8px;margin-top:20px}
+.t-dot{width:8px;height:8px;border-radius:50%;background:rgba(74,17,51,.3);border:none;padding:0;cursor:pointer;transition:all .25s}
+.t-dot.active{background:var(--brand);width:22px;border-radius:4px}
+
+@media(max-width:880px){
+  .teachers .wrap{overflow:hidden}  /* 防止橫向溢出 */
+  .t-grid{
     display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    color:#aab4c4;
-    margin-bottom:8px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:16px;
+    padding-bottom:6px;
+    margin:0 -24px;
+    padding-left:24px;
+    padding-right:24px;
   }
-  .progress-meta b{color:var(--gold);}
-  .progress-bar{
-    height:6px;
-    background:rgba(255,255,255,.15);
-    border-radius:6px;
-    overflow:hidden;
-  }
-  .progress-fill{
-    height:100%;
-    width:0;
-    background:var(--gold);
-    border-radius:6px;
-    transition:width .4s ease;
-  }
+  .t-grid::-webkit-scrollbar{display:none}
+  .t-card{flex:0 0 calc(100vw - 80px);scroll-snap-align:start}
+  .t-dots{display:flex}
+}
+@media(max-width:768px){
+  .t-grid{margin:0 -18px;padding-left:18px;padding-right:18px}
+  .t-card{flex:0 0 calc(100vw - 64px)}
+}
 
-  /* ---------- Journey ---------- */
-  main{
-    max-width:680px;
-    margin:0 auto;
-    padding:36px 18px 60px;
-  }
+/* VALUE */
+.value{background:var(--brand-light)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.value-card{background:#fff;border-radius:var(--r-lg);padding:30px 26px;box-shadow:var(--shadow)}
+.value-card .ic{font-size:34px;margin-bottom:14px}
+.value-card h3{font-size:19px;margin-bottom:10px;color:var(--brand-dark)}
+.value-card p{color:var(--ink-2);font-size:14.5px}
 
-  .step{
-    position:relative;
-    background:#fff;
-    border:1px solid var(--line);
-    border-left:4px solid var(--line);
-    border-radius:14px;
-    margin-bottom:14px;
-    transition:border-color .25s ease, box-shadow .25s ease, transform .15s ease;
-    overflow:hidden;
-  }
-  .step.active{
-    border-color:var(--gold);
-    border-left-color:var(--gold);
-    box-shadow:0 8px 26px rgba(27,46,75,.12);
-  }
+/* FOUNDER STORY */
+.founder{background:var(--brand-light)}
+.founder .narrow{max-width:720px;border-left:3px solid var(--brand);padding-left:34px}
+.founder h2{font-size:clamp(24px,4vw,36px);color:var(--brand-dark);line-height:1.4;margin-bottom:30px}
+.founder p{color:var(--ink-2);font-size:17px;margin-bottom:18px}
+.founder p b{color:var(--ink)}
+.founder .punch{font-family:"Noto Serif TC",serif;font-size:clamp(19px,2.6vw,23px);font-weight:700;color:var(--brand-dark);line-height:1.6;margin:30px 0}
+.founder .sign{margin-top:30px;font-size:15px;color:var(--brand-dark);font-weight:700}
+.founder .sign small{display:block;font-size:13px;color:var(--ink-3);font-weight:400;margin-top:3px}
+@media(max-width:768px){.founder .narrow{padding-left:20px}}
 
-  .step-head{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:18px 18px;
-    cursor:pointer;
-    user-select:none;
-  }
-  .num{
-    flex:0 0 auto;
-    width:38px;height:38px;
-    border-radius:50%;
-    background:var(--navy);
-    color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:700;
-    font-size:16px;
-    transition:background .25s ease;
-  }
-  .step.active .num{background:var(--gold);color:var(--navy);}
-  .step.done .num{background:var(--gold);color:var(--navy);}
-  .head-text{flex:1;min-width:0;}
-  .head-text h3{
-    font-size:17px;
-    font-weight:700;
-    color:var(--navy);
-  }
-  .head-text .desc{
-    font-size:14px;
-    color:var(--muted);
-    margin-top:3px;
-  }
-  .chevron{
-    flex:0 0 auto;
-    color:var(--gold);
-    font-size:13px;
-    transition:transform .3s ease;
-  }
-  .step.active .chevron{transform:rotate(180deg);}
+/* SIGNUP */
+.signup{background:var(--brand-dark);color:#fff;text-align:center}
+.signup h2{font-size:clamp(26px,4.5vw,42px);margin-bottom:16px}
+.signup .sub{color:rgba(255,255,255,.8);font-size:18px;max-width:560px;margin:0 auto 14px}
+.trial-info{display:flex;gap:12px;margin:34px 0 38px}
+.ti-card{flex:1 1 calc(33% - 12px);min-width:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:18px 16px;text-align:center}
+.ti-card .l{font-size:12.5px;color:var(--gold);font-weight:700;letter-spacing:.08em;margin-bottom:6px}
+.ti-card .v{font-size:16px;font-weight:700;color:#fff}
+.ti-card .v small{display:block;font-size:12px;font-weight:400;color:rgba(255,255,255,.6);margin-top:4px}
+.signup .btn-primary{font-size:17px;padding:17px 44px}
+.signup-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.55)}
 
-  .detail{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease;
-  }
-  .detail-inner{
-    padding:0 18px 20px 70px;
-  }
-  .step-img{
-    display:block;
-    width:100%;
-    border-radius:10px;
-    margin-bottom:14px;
-    border:1px solid var(--line);
-    aspect-ratio:16 / 9;
-    object-fit:cover;
-    background:var(--navy);
-  }
-  .detail-label{
-    display:inline-block;
-    font-size:12px;
-    letter-spacing:1px;
-    color:var(--gold);
-    font-weight:700;
-    margin-bottom:8px;
-  }
-  .detail ul{
-    list-style:none;
-  }
-  .detail li{
-    position:relative;
-    padding-left:18px;
-    margin-bottom:7px;
-    font-size:14.5px;
-    color:var(--text);
-  }
-  .detail li::before{
-    content:"";
-    position:absolute;
-    left:0;top:10px;
-    width:6px;height:6px;
-    border-radius:50%;
-    background:var(--gold);
-  }
+/* FOOTER */
+footer{background:#0f0509;color:rgba(255,255,255,.5);text-align:center;padding:36px 24px;font-size:13px}
+footer .v-badge{margin-right:8px}
 
-  /* connector line between cards */
-  .connector{
-    width:2px;
-    height:14px;
-    background:var(--line);
-    margin:-7px auto;
-    position:relative;
-    z-index:0;
-  }
-
-  /* ---------- Nav buttons ---------- */
-  .controls{
-    position:sticky;
-    bottom:0;
-    background:linear-gradient(to top,var(--bg) 70%,transparent);
-    padding:16px 18px 22px;
-    display:flex;
-    gap:12px;
-    max-width:680px;
-    margin:0 auto;
-  }
-  .btn{
-    flex:1;
-    padding:13px 18px;
-    border-radius:30px;
-    border:none;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
-    font-family:inherit;
-    transition:opacity .2s ease, transform .1s ease;
-  }
-  .btn:active{transform:scale(.98);}
-  .btn-prev{
-    background:#fff;
-    color:var(--navy);
-    border:1px solid var(--line);
-  }
-  .btn-next{
-    background:var(--navy);
-    color:#fff;
-  }
-  .btn-next.finish{background:var(--gold);color:var(--navy);}
-  .btn:disabled{opacity:.4;cursor:default;}
-
-  footer{
-    text-align:center;
-    color:var(--muted);
-    font-size:12.5px;
-    padding:0 20px 30px;
-  }
-  footer b{color:var(--navy);}
-
-  @media (max-width:480px){
-    header h1{font-size:23px;}
-    .detail-inner{padding-left:18px;}
-    .head-text h3{font-size:16px;}
-  }
+@media(max-width:880px){
+  .value-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+}
+@media(max-width:768px){
+  section{padding:70px 18px}
+  .vs{grid-template-columns:1fr}
+  .gap-row{grid-template-columns:1fr;gap:10px}
+  .gap-arrow{transform:rotate(90deg);justify-content:center;padding:2px 0}
+  .hero{padding:130px 18px 80px}
+  /* 三欄資訊卡手機字縮小 */
+  .trial-info{gap:8px}
+  .ti-card{padding:14px 8px}
+  .ti-card .l{font-size:11px;letter-spacing:.04em}
+  .ti-card .v{font-size:13px}
+  .ti-card .v small{font-size:11px}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <span class="tag">畢業季拍照攤位</span>
-  <h1>顧客旅程 ｜ 7 步驟</h1>
-  <p>從學生走出校門那一刻，到他加入 LINE 帶走資訊。點任一步驟展開「設計重點」，或用下方按鈕一步步走完。</p>
-  <div class="progress-wrap">
-    <div class="progress-meta">
-      <span>旅程進度</span>
-      <span><b id="progNum">0</b> / 7</span>
+<nav id="topNav">
+  <a class="nav-logo" href="#top"><div class="v-badge">V+</div>得勝者文教</a>
+  <div class="nav-links">
+    <a href="#pain">升高一英文落差</a>
+    <a href="#wedge">我們的不同</a>
+    <a href="#teachers">三位老師</a>
+    <a href="#signup" class="active">試聽資訊</a>
+  </div>
+  <a class="nav-cta" href="#signup">免費試聽報名</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-badge">三升一英文 · 免費試聽講座</span>
+    <h1>升高一的英文落差，<br><span class="hl">不是「補更多」就追得上。</span></h1>
+    <p class="hero-sub">會考也許背 2000 單字就能猜文章大意，<br>但高中要背 <b style="color:#fff">7000 單字</b>、讀懂整頁長文、寫出有結構的作文。<br><br>差距不在更多「填鴨」，而在有沒有人教孩子——<br><b style="color:#fff">怎麼背、怎麼讀、怎麼學。</b></p>
+    <div class="hero-cta">
+      <a href="#signup" class="btn btn-primary">免費報名試聽</a>
+      <a href="#teachers" class="btn btn-ghost">先認識三位老師</a>
     </div>
-    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    <div class="hero-teachers">
+      <div class="ht-chip"><div class="n">Penny 老師</div><div class="r">課內學科權威</div></div>
+      <div class="ht-chip"><div class="n">Gary 老師</div><div class="r">20 多年教學經驗</div></div>
+      <div class="ht-chip"><div class="n">顏競廷</div><div class="r">台大傑出全英授課教學助理</div></div>
+    </div>
   </div>
 </header>
 
-<main id="journey"></main>
+<!-- PAIN -->
+<section class="pain" id="pain">
+  <div class="narrow reveal">
+    <span class="kicker">升高一的真相</span>
+    <h2>很多學生覺得，<br>升高中課業難度三級跳——<br>最誇張的，就是英文。</h2>
+    <p>國中英文，背得起 2000 個單字、看得懂句子，會考就能拿到不錯的成績。<br>但一上高中——<br>單字量一路飆升、文章從幾行變成整頁，<br>考試也從「選出答案」，變成「讀懂沒看過的長文、寫出完整翻譯」。</p>
 
-<div class="controls">
-  <button class="btn btn-prev" id="prevBtn" disabled>← 上一步</button>
-  <button class="btn btn-next" id="nextBtn">開始旅程 →</button>
-</div>
+    <div class="climb reveal">
+      <svg viewBox="0 0 720 430" role="img" aria-label="單字量累積曲線：國中小 9 年背 2000 單，高中 3 年再多背 5000 單">
+        <defs>
+          <linearGradient id="steepFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C9A84C" stop-opacity="0.32"/>
+            <stop offset="1" stop-color="#C9A84C" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- gridlines -->
+        <line x1="64" y1="278" x2="684" y2="278" stroke="#e3d3dc" stroke-width="1" stroke-dasharray="4 5"/>
+        <line x1="64" y1="44" x2="684" y2="44" stroke="#e3d3dc" stroke-width="1" stroke-dasharray="4 5"/>
+        <line x1="64" y1="372" x2="684" y2="372" stroke="#dddddd" stroke-width="1.5"/>
+        <!-- y labels -->
+        <text x="58" y="282" text-anchor="end" font-size="13" fill="#888">2,000</text>
+        <text x="58" y="48" text-anchor="end" font-size="13" fill="#888">7,000</text>
+        <text x="58" y="376" text-anchor="end" font-size="12" fill="#bbbbbb">0</text>
+        <!-- divider at 國三 / 高一 -->
+        <line x1="529" y1="372" x2="529" y2="112" stroke="#e3d3dc" stroke-width="1" stroke-dasharray="3 6"/>
+        <!-- area gentle -->
+        <path d="M64,372 L529,278 L529,372 Z" fill="#7B2252" fill-opacity="0.06"/>
+        <!-- area steep -->
+        <path d="M529,278 C590,262 614,118 684,44 L684,372 L529,372 Z" fill="url(#steepFill)"/>
+        <!-- gentle line -->
+        <path d="M64,372 L529,278" fill="none" stroke="#b48aa3" stroke-width="3" stroke-linecap="round"/>
+        <!-- steep line -->
+        <path d="M529,278 C590,262 614,118 684,44" fill="none" stroke="#C9A84C" stroke-width="4.5" stroke-linecap="round"/>
+        <!-- dots -->
+        <circle cx="64" cy="372" r="4" fill="#b48aa3"/>
+        <circle cx="529" cy="278" r="5.5" fill="#7B2252"/>
+        <circle cx="684" cy="44" r="7.5" fill="#C9A84C"/>
+        <!-- x segment labels -->
+        <text x="296" y="398" text-anchor="middle" font-size="13.5" fill="#666666" font-weight="700">國小 ～ 國三（9 年）</text>
+        <text x="606" y="398" text-anchor="middle" font-size="13.5" fill="#7B2252" font-weight="700">高中（3 年）</text>
+        <!-- callouts -->
+        <text x="300" y="246" text-anchor="middle" font-size="14" fill="#9a6f88" font-weight="700">9 年，慢慢背到 2,000 單</text>
+        <text x="556" y="150" text-anchor="middle" font-size="15.5" fill="#9a7a1f" font-weight="900">3 年，要再多背</text>
+        <text x="556" y="174" text-anchor="middle" font-size="22" fill="#9a7a1f" font-weight="900">＋5,000 單</text>
+      </svg>
+      <div class="climb-take">同樣是背單字——<br>國中小花了整整 <b>9 年</b>背到 2,000；高中卻要在短短 <b>3 年</b>內，再多背 <b>5,000 個</b>。<br>這不是「多一點」，是陡升。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WEDGE -->
+<section class="wedge" id="wedge">
+  <div class="wrap reveal">
+    <span class="kicker" style="color:var(--gold)">我們相信的事</span>
+    <h2>英文學得好，<br>靠的不是<span class="hl">蠻力</span>，是<span class="hl">方法</span>。</h2>
+    <p class="lead">我們相信高中的英文，重點不是「上了多少課」，而是「會不會自己讀」。<br>背完 7000 個單字，不等於能讀懂一篇沒看過的長文。<br>所以我們把力氣，放在一個帶得走的技能上——<br>教孩子怎麼讀、怎麼學。</p>
+    <div class="belief-grid">
+      <div class="belief">
+        <div class="bn">從聽懂，<br>到學得起來</div>
+        <p>課內紮實、課外有趣、再加上學習方法，三塊一起到位——讓「聽懂」真正變成孩子自己的能力。</p>
+      </div>
+      <div class="belief">
+        <div class="bn">每個孩子<br>都被看見</div>
+        <p>用 AI 個人化追蹤，加上真人教練一對一，清楚知道孩子卡在哪、為什麼卡，再為他調整學習節奏。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section class="teachers" id="teachers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>三位老師，一個完整的英文能力</h2>
+      <p>課內、課外、方法——缺一不可。這就是為什麼我們把三個環節合在一起，而不是只請一位老師。</p>
+    </div>
+    <div class="t-grid" id="tCarousel">
+
+      <div class="t-card reveal">
+        <div class="t-top">
+          <div class="t-photo"><img src="老師/Penny.png" alt="Penny老師"></div>
+          <span class="t-role">課內學科</span>
+          <div class="t-name">Penny<span>老師</span></div>
+          <div class="t-tagline">第一志願的多年教書經歷</div>
+        </div>
+        <div class="t-body">
+          <ul class="t-feat">
+            <li><b>課內紮實</b>：文法不再散落三年，依邏輯重新排序教透</li>
+            <li><b>題型精準</b>：帶孩子拆解高中英文字彙、綜合測驗、文意選填的出題邏輯</li>
+            <li><b>看懂「為什麼」</b>：不是背答案，是理解每個選項差在哪</li>
+          </ul>
+          <div class="t-proof">Penny老師為你的課內實力扎實打底，讓高分不靠運氣！</div>
+        </div>
+      </div>
+
+      <div class="t-card reveal">
+        <div class="t-top">
+          <div class="t-photo"><img src="老師/Gary.png" alt="Gary老師"></div>
+          <span class="t-role">課外・興趣</span>
+          <div class="t-name">Gary<span>老師</span></div>
+          <div class="t-tagline">20 餘年教學經驗</div>
+        </div>
+        <div class="t-body">
+          <ul class="t-feat">
+            <li><b>新聞英文</b>：選自 BBC、CNN 的真實時事，養出讀長文的耐力</li>
+            <li><b>素養導向</b>：跨領域整合，讓新課綱最怕的素養題不再可怕</li>
+            <li><b>字根字首</b>：系統化記憶，背單字有方法、有成就感</li>
+          </ul>
+          <div class="t-proof">Gary老師用新聞帶你入門，學生都說：「這堂課不想下課」</div>
+        </div>
+      </div>
+
+      <div class="t-card reveal">
+        <div class="t-top">
+          <div class="t-photo"><img src="photos/jingting.png" alt="競廷老師"></div>
+          <span class="t-role">學習陪跑員</span>
+          <div class="t-name">顏競廷</div>
+          <div class="t-tagline">獲選台大傑出全英授課教學助理</div>
+        </div>
+        <div class="t-body">
+          <ul class="t-feat">
+            <li><b>訓練方法</b>：台大心理系背景，設計出以「語言學與認知科學」為基底的方法論。</li>
+            <li><b>AI 單字診斷</b>：使用 AI 工具，把單字真正刻進長期記憶！</li>
+            <li><b>每週真人一對一陪跑</b>：手把手帶學生，把「讀書方法」內化成自己的習慣。</li>
+          </ul>
+          <div class="t-proof">結合 AI 工具，讓學生把讀書方法真正內化！</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="t-dots" id="tDots"></div>
+    <div class="combo reveal">
+      <h3>課內紮實 × 愛上英文 × 學會怎麼讀</h3>
+      <p>單獨一塊都不夠。<br>三個環節合起來，才是孩子升高一後真正需要的英文能力！</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- SIGNUP -->
+<section class="signup" id="signup">
+  <div class="wrap reveal">
+    <h2>暑假先搞定英文，開學就輕鬆</h2>
+    <p class="sub">名額有限。先來免費試聽，讓孩子自己決定要不要留下來。</p>
+    <div class="trial-info">
+      <div class="ti-card"><div class="l">適合對象</div><div class="v">國三升高一<small>已知放榜結果尤佳</small></div></div>
+      <div class="ti-card"><div class="l">試聽場次</div><div class="v">6/18（四）・7/3（五）<small>14:00–16:00</small></div></div>
+      <div class="ti-card"><div class="l">費用</div><div class="v">免費試聽<small>現場了解三師課程</small></div></div>
+    </div>
+    <a href="https://docs.google.com/forms/d/1STRlEMakbU_kyoOUHIOSdGNedwg37vy_GMgQUKbiWLw/viewform" target="_blank" class="btn btn-primary">歡迎帶孩子來免費試聽</a>
+    <p class="signup-note">加入 LINE 諮詢，我們會協助你看孩子適不適合 → <a href="https://lin.ee/xpctTB9" target="_blank" style="color:rgba(255,255,255,.7)">LINE 聯絡我們</a></p>
+  </div>
+</section>
 
 <footer>
-  核心提醒：照片與包裝要好看到學生<b>願意主動發限動</b> — 那才是真正的廣告版位。
+  <span class="v-badge">V+</span>得勝者文教 · 三升一英文銜接課程<br>
+  <span style="font-size:12px;opacity:.7">© 得勝者文教 VICTOR+</span>
 </footer>
 
 <script>
-const steps = [
-  {
-    title: "遠處看到，停下來",
-    desc: "學生走出校門，遠遠看到攤位，被吸引停下來。",
-    img: "images/step1-banner.jpg",
-    imgAlt: "校門口白牆前的深藍易拉展，學生停下抬頭看",
-    points: [
-      "看板要在 10 公尺外就看得到。",
-      "深色背景在學校白牆前跳出來。",
-      "主訴求只有一句：「免費畢業拍照」。"
-    ]
-  },
-  {
-    title: "上前了解，登記報名",
-    desc: "學生走近，了解活動，填報名表或掃 QR Code。",
-    img: "images/step2-signup.png",
-    imgAlt: "工作人員主動招呼，學生掃 QR Code 報名",
-    points: [
-      "報名流程要在 30 秒內完成。",
-      "桌上有立牌說明等候時間。",
-      "現場工作人員主動搭話，不站著等人來。"
-    ]
-  },
-  {
-    title: "等候",
-    desc: "學生等待輪到自己。",
-    img: "images/step3-waiting.jpg",
-    imgAlt: "有設計感的等候區，WAIT TIME 立牌，學生輕鬆聊天",
-    points: [
-      "等候區要有設計，讓人不無聊。",
-      "可以看其他人拍照的過程。",
-      "等候本身也是體驗的一部分。"
-    ]
-  },
-  {
-    title: "拍照",
-    desc: "進入拍照區，在背景板前拍照。",
-    img: "images/step4-photobooth.jpg",
-    imgAlt: "深藍 CLASS OF 2025 背景板 + 環形補光燈的專業拍照區",
-    points: [
-      "背景板夠專業：深色底 + CLASS OF 2025 大字。",
-      "地面有站位標記，學生知道站哪裡最好看。",
-      "補光燈讓照片好看；道具限 3 種以內。"
-    ]
-  },
-  {
-    title: "收到照片",
-    desc: "照片現場印出，裝進品牌信封交給學生。",
-    img: "images/step5-envelope.jpg",
-    imgAlt: "手寫感「給未來高中生的你」品牌信封，照片露出一角",
-    points: [
-      "信封是體驗的高潮，不只是一張紙。",
-      "霧白底 + 深藍文字 + 手寫感字體「給未來高中生的你」。",
-      "學生拿著信封會想拍照發限動。"
-    ]
-  },
-  {
-    title: "DIY 放照片進信封",
-    desc: "學生自己把照片放進信封，可以加上扣環掛在書包。",
-    img: "images/step6-diy.png",
-    imgAlt: "學生把照片放進品牌信封，桌上有金色扣環",
-    points: [
-      "動手做增加參與感。",
-      "讓學生多停留 2–3 分鐘。",
-      "這個動作本身會讓學生更記得這個體驗。"
-    ]
-  },
-  {
-    title: "加入 LINE，帶走資訊",
-    desc: "離開前掃 QR Code 加入 LINE 官方帳號，看到公告上已有其他人加入。",
-    img: "images/step7-line.png",
-    imgAlt: "學生掃 LINE QR Code，看板顯示「已有多人加入」社群證明",
-    points: [
-      "社群證明（「已有 XX 人加入」）降低心理門檻。",
-      "這是整個旅程的轉換點。",
-      "從體驗者變成潛在學員。"
-    ]
-  }
-];
+const nav=document.getElementById('topNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+  })
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
 
-const journey = document.getElementById('journey');
-let current = -1; // -1 = 尚未開始
+// Teacher carousel dots
+(function(){
+  var car=document.getElementById('tCarousel');
+  var dotsEl=document.getElementById('tDots');
+  if(!car||!dotsEl) return;
+  var cards=Array.from(car.querySelectorAll('.t-card'));
+  var dots=[];
 
-steps.forEach((s, i) => {
-  if (i > 0) {
-    const c = document.createElement('div');
-    c.className = 'connector';
-    journey.appendChild(c);
-  }
-  const el = document.createElement('div');
-  el.className = 'step';
-  el.dataset.index = i;
-  el.innerHTML = `
-    <div class="step-head">
-      <div class="num">${i + 1}</div>
-      <div class="head-text">
-        <h3>${s.title}</h3>
-        <div class="desc">${s.desc}</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="detail">
-      <div class="detail-inner">
-        ${s.img ? `<img class="step-img" src="${s.img}" alt="${s.imgAlt || ''}" loading="lazy">` : ''}
-        <span class="detail-label">設計重點 ｜ 為什麼這樣設計</span>
-        <ul>${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
-      </div>
-    </div>`;
-  el.querySelector('.step-head').addEventListener('click', () => select(i));
-  journey.appendChild(el);
-});
-
-const stepEls = [...document.querySelectorAll('.step')];
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const progFill = document.getElementById('progFill');
-const progNum = document.getElementById('progNum');
-
-function setOpen(el, open) {
-  const d = el.querySelector('.detail');
-  d.style.maxHeight = open ? d.scrollHeight + 'px' : '0';
-}
-
-function select(i, scroll = false) {
-  current = i;
-  stepEls.forEach((el, idx) => {
-    const active = idx === i;
-    el.classList.toggle('active', active);
-    el.classList.toggle('done', idx < i);
-    setOpen(el, active);
+  cards.forEach(function(c,i){
+    var d=document.createElement('button');
+    d.className='t-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','第'+(i+1)+'位老師');
+    d.addEventListener('click',function(){
+      var left=c.offsetLeft-car.offsetLeft;
+      car.scrollTo({left:left,behavior:'smooth'});
+    });
+    dotsEl.appendChild(d);
+    dots.push(d);
   });
-  if (scroll && stepEls[i]) {
-    stepEls[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  function updateDots(){
+    if(!cards[0]) return;
+    var cardW=cards[0].offsetWidth+16;
+    var idx=Math.min(Math.round(car.scrollLeft/cardW),cards.length-1);
+    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
   }
-  updateUI();
-}
+  car.addEventListener('scroll',updateDots,{passive:true});
 
-function updateUI() {
-  const reached = current + 1;
-  progNum.textContent = Math.max(0, reached);
-  progFill.style.width = (Math.max(0, reached) / steps.length * 100) + '%';
-
-  prevBtn.disabled = current <= 0;
-  if (current >= steps.length - 1) {
-    nextBtn.textContent = '重新開始 ↺';
-    nextBtn.classList.add('finish');
-  } else if (current < 0) {
-    nextBtn.textContent = '開始旅程 →';
-    nextBtn.classList.remove('finish');
-  } else {
-    nextBtn.textContent = '下一步 →';
-    nextBtn.classList.remove('finish');
+  // 手機輪播時強制顯示所有卡片（避免 IntersectionObserver 未觸發）
+  function maybeReveal(){
+    if(window.innerWidth<=880){
+      cards.forEach(function(c){c.classList.add('visible');});
+    }
   }
-}
-
-nextBtn.addEventListener('click', () => {
-  if (current >= steps.length - 1) { select(0, true); return; }
-  select(current + 1, true);
-});
-prevBtn.addEventListener('click', () => {
-  if (current > 0) select(current - 1, true);
-});
-
-// keep open card height correct on resize
-window.addEventListener('resize', () => {
-  if (current >= 0) setOpen(stepEls[current], true);
-});
-
-// recompute open height once images finish loading (async load can cut off the panel)
-document.querySelectorAll('.step-img').forEach(img => {
-  img.addEventListener('load', () => {
-    const step = img.closest('.step');
-    if (step && step.classList.contains('active')) setOpen(step, true);
-  });
-});
-
-updateUI();
+  maybeReveal();
+  window.addEventListener('resize',maybeReveal);
+})();
 </script>
 </body>
 </html>
